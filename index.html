@@ -13,7 +13,7 @@
     rel="stylesheet"
   />
 
-  <link rel="stylesheet" href="style.css?v=20260911a" />
+  <link rel="stylesheet" href="style.css?v=20260911i" />
 </head>
 <body>
   <header class="hero">
@@ -104,6 +104,27 @@
               height="1590"
             />
           </figure>
+
+          <figure class="framed-photo">
+            <img
+              src="assets/group-photo.jpg"
+              alt="Sadie celebrating a birthday outdoors with a group of friends"
+              class="framed-photo__img"
+              width="5472"
+              height="3648"
+            />
+          </figure>
+
+          <!-- Decorative only; hidden below 1600px where there's no gutter
+               room beside the photos (see .about__disco in style.css) -->
+          <img
+            src="assets/disco-ball.png"
+            alt=""
+            aria-hidden="true"
+            class="about__disco"
+            width="544"
+            height="1069"
+          />
         </div>
       </div>
     </section>
@@ -143,7 +164,7 @@
               </div>
             </article>
 
-            <article class="exp-card" style="--order: 2">
+            <article class="exp-card exp-card--heart-blue" style="--order: 2">
               <h3 class="exp-card__title">
                 <span class="exp-card__role">Marketing Coordinator</span><span class="exp-card__org">ACE Queen's</span>
               </h3>
@@ -183,7 +204,7 @@
               </div>
             </article>
 
-            <article class="exp-card" style="--order: 4">
+            <article class="exp-card exp-card--heart-pink" style="--order: 4">
               <h3 class="exp-card__title">
                 <span class="exp-card__role">Intern</span><span class="exp-card__org">Women's Equity Lab</span>
               </h3>
@@ -200,7 +221,7 @@
     <!-- ============ Selected Work ============ -->
     <section id="selected-work" class="section selected-work">
       <div class="selected-work__inner">
-        <h2 class="section-heading selected-work__heading">Selected Work</h2>
+        <h2 class="section-heading selected-work__heading">Recent Work</h2>
 
         <!-- One carousel per group in the `selectedWork` array below;
              each carousel (arrows + track + cards) is built by the script. -->
@@ -278,24 +299,31 @@
               <li class="tool">
                 <span class="tool__icon" aria-hidden="true">
                   <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <defs><linearGradient id="ic-meta" x1="0" y1="0" x2="1" y2="0.4">
-                      <stop offset="0" stop-color="#0064e0"/><stop offset="1" stop-color="#0090ff"/>
-                    </linearGradient></defs>
-                    <path d="M9 31c0-8.5 4-15 9.7-15 3.6 0 6.4 2.6 9.2 7 1.8-2.8 3.9-7 8.1-7C41 9 44 15.6 44 23.7c0 4.9-1.7 8.3-5.2 8.3-3.3 0-5-2.8-7.9-7.7-.9-1.5-1.8-3.2-2.9-5.1-1.1 1.9-2 3.6-2.9 5.1C20 32 17.8 36 13.6 36 10 36 9 33 9 31z" fill="none" stroke="url(#ic-meta)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="4" y="4" width="40" height="40" rx="12" fill="#0a0a0c"/>
+                    <path d="M14 31c0-8 6-13 13-10 5 2 8-1 8-6" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="14" cy="31" r="2.2" fill="#25f4ee"/>
+                    <circle cx="35" cy="15" r="2.2" fill="#fe2c55"/>
                   </svg>
                 </span>
-                <span class="tool__name">Meta Business Suite</span>
+                <span class="tool__name">CapCut</span>
               </li>
 
               <li class="tool">
                 <span class="tool__icon" aria-hidden="true">
                   <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M29 12a6 6 0 0 1 12 0v20a6 6 0 0 1-12 0z" fill="#f9ab00"/>
-                    <path d="M17 22a5.5 5.5 0 0 1 11 0v10a5.5 5.5 0 0 1-11 0z" fill="#f9ab00" opacity="0.6"/>
-                    <circle cx="12.5" cy="33.5" r="5.5" fill="#e37400"/>
+                    <g fill="#d97757">
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(45 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(90 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(135 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(180 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(225 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(270 24 24)"/>
+                      <rect x="22.3" y="5" width="3.4" height="14" rx="1.7" transform="rotate(315 24 24)"/>
+                    </g>
                   </svg>
                 </span>
-                <span class="tool__name">Google Analytics</span>
+                <span class="tool__name">Claude</span>
               </li>
 
               <li class="tool">
