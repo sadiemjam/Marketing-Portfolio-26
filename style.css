@@ -1,0 +1,999 @@
+/* =========================================================
+   Marketing Portfolio — global styles
+   Warm, scrapbook-style, feminine editorial
+   ========================================================= */
+
+:root {
+  /* ---- Color palette ---- */
+  --color-bg: #daedef;             /* page + section background (everything below the hero) */
+  --color-card-bg: #e9f4f5;        /* Experience cards — a touch lighter than the page bg */
+  --color-cream: #faf3e8;          /* warm off-white (frames, on-dark text) */
+  --color-ink: #33302c;            /* body text */
+  --color-teal: #2f6f6b;           /* primary accent */
+  --color-teal-deep: #1f4f4c;      /* darker accent / hover */
+  --color-heart-blue: #3a6ea5;     /* Mycoursecompass bullet hearts */
+  --color-heart-pink: #d97ba0;     /* Queen's Sisterhood bullet hearts */
+
+  /* Woven / rattan frame tones (used by .framed-photo) */
+  --color-rattan: #d0b083;      /* warm honey wicker */
+  --color-rattan-dark: #a9895f;
+
+  /* On-photo text */
+  --color-on-photo: #ffffff;
+
+  /* Quieter tone of ink for long-form body copy */
+  --color-ink-soft: #57514a;
+
+  /* ---- Typography ---- */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-script: "Mrs Saint Delafield", "Playfair Display", cursive;
+  /* Quiet, low-contrast face for body copy + nav so the display type leads */
+  --font-body: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+
+  /* ---- Layout ---- */
+  --page-pad: clamp(1.5rem, 5vw, 4.5rem);
+  --nav-height: 5.5rem;
+
+  /* ---- Spacing scale (vertical rhythm) ---- */
+  --space-block: clamp(2rem, 5vw, 3.5rem);   /* gap between elements in a block */
+
+  /* Section rhythm: the (equal) breathing room on each side of the wavy
+     divider that separates one major section from the next, plus a little
+     extra at the very bottom of the page. */
+  --divider-space: clamp(2.5rem, 6vw, 4rem);
+  --page-end-space: clamp(3.25rem, 8vw, 5.5rem);
+}
+
+/* ---------------------------------------------------------
+   Reset / base
+   --------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* keep tilted / shadowed elements from forcing sideways scroll.
+     `clip` (not `hidden`) avoids turning <body> into a scroll container. */
+  overflow-x: clip;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Section-heading helper — script/cursive accent face.
+   One sizing system for every major section heading; sits clearly below
+   the hero title in the hierarchy but noticeably larger than before. */
+.section-heading {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(3rem, 6.5vw, 5.25rem);
+  color: var(--color-teal);
+  line-height: 1;
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);   /* heading -> section content */
+}
+
+/* ---------------------------------------------------------
+   Major sections — shared vertical rhythm + wavy divider
+   --------------------------------------------------------- */
+
+.section {
+  display: flow-root;                    /* keep inner margins contained */
+  background-color: var(--color-bg);
+  padding-top: var(--divider-space);     /* breathing room above the divider */
+}
+
+.section:last-of-type {
+  padding-bottom: var(--page-end-space);
+}
+
+/* A subtle, hand-drawn white wave marking where each section begins.
+   Same shape everywhere; a touch narrower on small screens. */
+.section::before {
+  content: "";
+  display: block;
+  width: clamp(150px, 40vw, 360px);
+  height: clamp(12px, 2.4vw, 18px);
+  margin: 0 auto var(--divider-space);   /* centred; equal room below -> heading */
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 24' preserveAspectRatio='none'%3E%3Cdefs%3E%3ClinearGradient id='w' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23ffffff' stop-opacity='0'/%3E%3Cstop offset='.16' stop-color='%23ffffff' stop-opacity='.9'/%3E%3Cstop offset='.84' stop-color='%23ffffff' stop-opacity='.9'/%3E%3Cstop offset='1' stop-color='%23ffffff' stop-opacity='0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M0 12C53 12 53 7 107 7 160 7 160 17 213 17 267 17 267 12 320 12' fill='none' stroke='url(%23w)' stroke-width='1.6' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E")
+    center / 100% 100% no-repeat;
+}
+
+/* ---------------------------------------------------------
+   Hero
+   --------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  color: var(--color-on-photo);
+  overflow: hidden;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* Still frame — shows before the video loads, if it fails, or when the
+     viewer prefers reduced motion. Same scene as assets/hero.mp4. */
+  background-image: url("assets/hero-poster.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #2b2340;
+}
+
+/* Looping background video — LA palm-lined street at dusk (Pexels, free) */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__video {
+    display: none; /* fall back to the still frame on .hero__bg */
+  }
+}
+
+/* One quiet, even darkening wash so white text stays legible —
+   no color banding competing with the photo. */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(40, 42, 42, 0.4) 0%,
+    rgba(40, 42, 42, 0.42) 50%,
+    rgba(28, 34, 34, 0.58) 100%
+  );
+}
+
+/* ---- Nav ---- */
+
+.nav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: var(--nav-height);
+  padding: 0 var(--page-pad);
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-on-photo);
+}
+
+.nav__menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+}
+
+.nav__menu a {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.82);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.nav__menu a:hover,
+.nav__menu a:focus-visible {
+  color: var(--color-on-photo);
+  border-bottom-color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- Hamburger toggle (hidden on desktop) ---- */
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-on-photo);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* ---- Hero content ---- */
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-block) var(--page-pad) calc(var(--space-block) * 1.5);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 11vw, 7.5rem);
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+  color: var(--color-bg);          /* same pale blue as the page background */
+  text-shadow: 0 2px 30px rgba(30, 40, 39, 0.4);
+}
+
+.hero__byline {
+  margin-top: 1.5rem;
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 3px rgba(20, 28, 28, 0.55), 0 2px 20px rgba(20, 28, 28, 0.5);
+}
+
+/* ---------------------------------------------------------
+   Mobile — hamburger nav
+   --------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.5rem var(--page-pad) 1.25rem;
+    background: rgba(31, 79, 76, 0.92);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    /* collapsed by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav--open .nav__menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__menu li {
+    width: 100%;
+  }
+
+  .nav__menu a {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .nav__menu a:hover,
+  .nav__menu a:focus-visible {
+    border-bottom-color: rgba(255, 255, 255, 0.15);
+    opacity: 0.75;
+  }
+
+  /* Animate bars into an X */
+  .nav--open .nav__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav--open .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav--open .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* ---------------------------------------------------------
+   Framed photo — reusable
+   --------------------------------------------------------- */
+
+.framed-photo {
+  --frame-width: 12px;
+  --tilt: 0deg; /* straight by default; the tilt-* modifiers below lean it */
+  display: inline-block;
+  max-width: 100%;
+  padding: var(--frame-width);
+  border-radius: 2px;
+
+  /* Warm rattan / basket weave: two fine diagonal crosshatch layers in
+     close honey/tan tones over a solid tan ground. Thin lines on a short
+     period so it reads as texture, not as a visible repeating grid. */
+  background-color: var(--color-rattan);
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      rgba(120, 84, 44, 0.13) 0 1px,
+      transparent 1px 5px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      rgba(235, 208, 162, 0.16) 0 1px,
+      transparent 1px 5px
+    );
+
+  /* Sits on top of the page, placed clearly crooked */
+  transform: rotate(var(--tilt));
+  box-shadow:
+    0 20px 38px -18px rgba(46, 42, 37, 0.5),
+    0 5px 14px rgba(46, 42, 37, 0.16);
+}
+
+.framed-photo__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 1px;
+}
+
+/* Rotation modifiers — each biases the drop shadow toward the side the
+   frame tilts away from, so the lean looks physically lifted. */
+.framed-photo--tilt-left {
+  --tilt: -5.5deg;
+  box-shadow:
+    16px 22px 40px -18px rgba(46, 42, 37, 0.52),
+    0 5px 14px rgba(46, 42, 37, 0.16);
+}
+
+.framed-photo--tilt-right {
+  --tilt: 5.5deg;
+  box-shadow:
+    -16px 22px 40px -18px rgba(46, 42, 37, 0.52),
+    0 5px 14px rgba(46, 42, 37, 0.16);
+}
+
+/* ---------------------------------------------------------
+   About Me
+   --------------------------------------------------------- */
+
+.about {
+  color: var(--color-ink);
+  /* No overflow clipping here — the framed photo's tilt + shadow
+     need to spill past the section edges. */
+}
+
+.about__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: var(--page-pad);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-block);
+}
+
+.about__text p {
+  max-width: 42ch;
+  margin-bottom: 1.35em;
+  color: var(--color-ink-soft);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.about__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Warm greeting line that opens the bio */
+.about__text .about__lead {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin-bottom: 1.25rem;
+}
+
+.about__media {
+  display: flex;
+  justify-content: center;
+  /* Breathing room for the drop shadow so nothing clips */
+  padding: 2rem 1.5rem 2.5rem;
+}
+
+.about__media .framed-photo {
+  max-width: 340px;
+}
+
+/* Show the headshot at its own proportions rather than the component's
+   default 4:5 crop, so nothing important gets trimmed. */
+.about__media .framed-photo__img {
+  aspect-ratio: auto;
+}
+
+/* Photo sits beside the text once there's room for two columns.
+   Top-aligned so the frame lines up with the heading. */
+@media (min-width: 760px) {
+  .about__inner {
+    grid-template-columns: 1fr 0.85fr;
+    align-items: start;
+    gap: clamp(2.5rem, 7vw, 6rem);
+  }
+
+  .about__media {
+    justify-content: flex-end;
+    padding: 0;
+  }
+}
+
+/* ---------------------------------------------------------
+   Experience
+   --------------------------------------------------------- */
+
+.experience__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: var(--page-pad);
+}
+
+/* Mobile-first: one flat column. The two column wrappers collapse
+   (display: contents) so all cards flow in a single list, ordered by
+   the --order set on each card. */
+.experience__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.experience__col {
+  display: contents;
+}
+
+.exp-card {
+  order: var(--order, 0);
+}
+
+/* Desktop: two side-by-side columns, each ~half width. Each column holds
+   one phone card with its text-only card directly below it. Columns flow
+   naturally top to bottom — no stretching, no forced alignment — with the
+   same narrow gap between the columns and between the cards, so the four
+   read as one connected group. */
+@media (min-width: 900px) {
+  .experience__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    align-items: start;
+  }
+
+  .experience__col {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  /* DOM order within each column is already the wanted vertical order */
+  .exp-card {
+    order: 0;
+  }
+}
+
+/* Thin white rounded box around each role, to separate them — filled with
+   a shade just a touch lighter than the page background for subtle contrast */
+.exp-card {
+  border: 1px solid #ffffff;
+  border-radius: 14px;
+  background-color: var(--color-card-bg);
+  padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1.25rem, 3.5vw, 2rem);
+}
+
+.exp-card__title {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.exp-card__role {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.exp-card__org {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+}
+
+.exp-card__org::before {
+  content: "|";
+  margin: 0 0.55rem;
+  color: rgba(51, 48, 44, 0.3);
+}
+
+.exp-card__points {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+.exp-card__points li {
+  position: relative;
+  padding-left: 1.1rem;
+  max-width: 62ch;
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-ink-soft);
+}
+
+.exp-card__points li::before {
+  content: "\2013"; /* en dash */
+  position: absolute;
+  left: 0;
+  color: var(--color-teal);
+}
+
+/* Small heart bullets for the two cards with an Instagram phone preview
+   only (ACE Queen's and Women's Equity Lab keep the plain dash above).
+   Same size/position for both — only the colour differs. */
+.exp-card:has(.phone[data-ig="mycoursecompass"]) .exp-card__points li::before,
+.exp-card:has(.phone[data-ig="queensSisterhood"]) .exp-card__points li::before {
+  content: "\2665"; /* heart */
+  top: 0.28em;
+  left: 0.05rem;
+  font-size: 0.72em;
+  line-height: 1;
+}
+
+.exp-card:has(.phone[data-ig="mycoursecompass"]) .exp-card__points li::before {
+  color: var(--color-heart-blue);
+}
+
+.exp-card:has(.phone[data-ig="queensSisterhood"]) .exp-card__points li::before {
+  color: var(--color-heart-pink);
+}
+
+/* ---- Cards that carry an Instagram phone preview ---- */
+
+/* Narrow column: text sits above the phone, phone centred below. */
+.exp-card--media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.15rem, 3vw, 1.6rem);
+}
+
+.exp-card__media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ---- Phone mockup ---- */
+
+.phone {
+  --phone-w: 155px;   /* mobile default */
+  display: block;
+  position: relative;
+  width: var(--phone-w);
+  aspect-ratio: 9 / 19.5;
+  padding: 7px;                 /* the visible frame thickness */
+  border-radius: 30px;
+  background: #1c1c1e;          /* dark phone shell */
+  box-shadow:
+    0 16px 30px -12px rgba(28, 30, 34, 0.38),
+    0 4px 10px rgba(28, 30, 34, 0.14);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.phone__notch {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 34%;
+  height: 13px;
+  border-radius: 999px;
+  background: #1c1c1e;
+  z-index: 2;
+}
+
+.phone__shot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 23px;         /* inner screen corners — clips the screenshot */
+  background: #e9eef1;         /* shown while the image loads / if it's missing */
+}
+
+.phone:hover,
+.phone:focus-visible {
+  transform: translateY(-6px);
+  box-shadow:
+    0 26px 40px -12px rgba(28, 30, 34, 0.44),
+    0 8px 16px rgba(28, 30, 34, 0.16);
+}
+
+.phone:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 5px;
+}
+
+.phone-link {
+  display: inline-block;
+  margin-top: 0.95rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.phone-link:hover,
+.phone-link:focus-visible {
+  border-bottom-color: currentColor;
+}
+
+/* Desktop sizing — a supporting-size phone, identical for both previews. */
+@media (min-width: 640px) {
+  .phone {
+    --phone-w: 175px;
+  }
+}
+
+/* ---------------------------------------------------------
+   Skills & Tools
+   --------------------------------------------------------- */
+
+.skilltools__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: var(--page-pad);
+}
+
+.skilltools__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 5vw, 2.75rem);
+}
+
+@media (min-width: 860px) {
+  .skilltools__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1.75rem, 3.5vw, 2.75rem);
+    align-items: start;
+  }
+}
+
+.skilltools__subhead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-teal);
+  margin-bottom: 1rem;
+}
+
+/* ---- Skills: list of pills ---- */
+
+.skill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.skill-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.22);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  color: var(--color-ink);
+}
+
+.skill-pill__dot {
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-teal);
+}
+
+/* ---- Tools: symmetrical icon grid ---- */
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 1fr;                 /* every tile the same height */
+  gap: clamp(0.65rem, 1.7vw, 1rem);
+}
+
+.tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  min-height: 150px;                   /* keeps the grid tall enough to
+                                          balance the Skills column */
+  padding: 1.15rem 0.6rem;
+  border: 1px solid #ffffff;
+  border-radius: 12px;
+  background-color: rgba(255, 255, 255, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* same-size box for every logo, whatever its native shape */
+.tool__icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tool__icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.tool__name {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--color-ink-soft);
+}
+
+.tool:hover,
+.tool:focus-within {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 22px -12px rgba(28, 30, 34, 0.28);
+}
+
+/* ---------------------------------------------------------
+   Selected Work — manual horizontal carousel
+   --------------------------------------------------------- */
+
+.selected-work__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: var(--page-pad);
+}
+
+/* Stack of independent carousels, one per group in `selectedWork` */
+.selected-work__carousels {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+/* arrow | scrolling track | arrow */
+.work-carousel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.work-carousel__track {
+  flex: 1 1 auto;
+  min-width: 0;                 /* lets the flex child become a scroll box */
+  display: flex;
+  gap: clamp(0.85rem, 2vw, 1.4rem);
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-block: 0.75rem;       /* breathing room for the hover lift */
+  scrollbar-width: none;        /* Firefox */
+}
+
+.work-carousel__track::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari */
+}
+
+.work-carousel__track:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+.work-card {
+  flex: 0 0 80%;               /* mobile: ~1 full image + a peek of the next */
+  scroll-snap-align: start;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+@media (min-width: 620px) {
+  .work-card { flex-basis: 46%; }   /* ~2 */
+}
+
+@media (min-width: 900px) {
+  .work-card { flex-basis: 29%; }   /* ~3.3 visible */
+}
+
+@media (min-width: 1180px) {
+  .work-card { flex-basis: 22.5%; } /* ~4 visible */
+}
+
+/* Every image container is the same size */
+.work-card__media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.work-card__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* contain = the whole graphic always shows, exact aspect ratio kept,
+     never cropped. Images that aren't 4:5 get a little neutral matte
+     inside the (consistent) container rather than being trimmed. */
+  object-fit: contain;
+}
+
+.work-card__media:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -14px rgba(28, 30, 34, 0.3);
+}
+
+/* Neutral placeholder until real images are added */
+.work-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed rgba(47, 111, 107, 0.4);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+}
+
+/* Optional small label under an image */
+.work-card__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding-inline: 0.1rem;
+}
+
+.work-card__project {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--color-ink);
+}
+
+.work-card__type {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-ink-soft);
+}
+
+/* Identical, symmetrical arrow buttons */
+.work-arrow {
+  flex: 0 0 auto;
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-teal);
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.15s ease;
+}
+
+.work-arrow svg {
+  width: 42%;
+  height: 42%;
+}
+
+.work-arrow:hover {
+  background: #ffffff;
+}
+
+.work-arrow:active {
+  transform: scale(0.94);
+}
+
+.work-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+@media (max-width: 619.98px) {
+  .work-arrow {
+    display: none;             /* mobile is swipe-only */
+  }
+}
+
+/* ---------------------------------------------------------
+   Reduced motion
+   --------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}

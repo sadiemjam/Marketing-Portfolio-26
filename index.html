@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Portfolio</title>
+
+  <!-- Fonts: Playfair Display (serif display) + Mrs Saint Delafield (script accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mrs+Saint+Delafield&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css?v=20260911a" />
+</head>
+<body>
+  <header class="hero">
+    <!-- Full-bleed background: looping video with a still-frame fallback.
+         Swap assets/hero.mp4 + assets/hero-poster.jpg to change it. -->
+    <div class="hero__bg" role="img" aria-label="Palm trees against a dusk sky in Los Angeles">
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="assets/hero-poster.jpg"
+      >
+        <source src="assets/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <!-- Nav bar overlaid on the photo -->
+    <nav class="nav" aria-label="Primary">
+      <a href="#" class="nav__logo">Sadie&nbsp;Jamieson</a>
+
+      <button
+        class="nav__toggle"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Open menu"
+      >
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero content -->
+    <div class="hero__content">
+      <h1 class="hero__title">Marketing Portfolio</h1>
+      <p class="hero__byline">by Sadie Jamieson</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ About Me ============ -->
+    <section id="about" class="section about">
+      <div class="about__inner">
+        <div class="about__text">
+          <h2 class="section-heading about__heading">About Me</h2>
+
+          <p class="about__lead">Hi, I'm Sadie!</p>
+          <p>
+            I'm a Commerce student at Queen's University with a passion for
+            marketing, branding, and creating content that connects with
+            people. I'm especially interested in combining creativity with
+            strategy, understanding what an audience wants and turning those
+            insights into content and ideas that resonate.
+          </p>
+          <p>
+            Through my marketing and internship experiences, I've worked on
+            social media strategy, content creation, competitive research,
+            brand positioning, and audience targeting. I love taking an idea
+            from the brainstorming stage and turning it into something people
+            can see, interact with, and remember.
+          </p>
+          <p>
+            Outside of marketing, I enjoy getting involved in my community,
+            meeting new people, travelling, and trying new things. I bring
+            curiosity, creativity, and a collaborative mindset to everything
+            I do, and I'm always looking for opportunities to learn, create,
+            and make an impact.
+          </p>
+        </div>
+
+        <div class="about__media">
+          <figure class="framed-photo">
+            <img
+              src="assets/profile.jpg"
+              alt="Sadie Jamieson"
+              class="framed-photo__img"
+              width="1039"
+              height="1590"
+            />
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Experience ============ -->
+    <section id="experience" class="section experience">
+      <div class="experience__inner">
+        <h2 class="section-heading experience__heading">Experience</h2>
+
+        <div class="experience__grid">
+          <!-- LEFT column (desktop) · Mobile order: 1 then 2 -->
+          <div class="experience__col">
+            <article class="exp-card exp-card--media" style="--order: 1">
+              <div class="exp-card__body">
+                <h3 class="exp-card__title">
+                  <span class="exp-card__role">Cofounder</span><span class="exp-card__org">Mycoursecompass</span>
+                </h3>
+                <ul class="exp-card__points">
+                  <li>Lead marketing for a student-focused web app, including content strategy, social media design, trend tracking, and performance-based adjustments.</li>
+                  <li>Conduct market research and target audience surveys to help take the platform from initial idea to MVP.</li>
+                </ul>
+              </div>
+              <div class="exp-card__media">
+                <a
+                  class="phone"
+                  data-ig="mycoursecompass"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the Mycoursecompass Instagram in a new tab"
+                >
+                  <span class="phone__notch" aria-hidden="true"></span>
+                  <img class="phone__shot" alt="Mycoursecompass Instagram profile" />
+                </a>
+                <a class="phone-link" data-ig="mycoursecompass" target="_blank" rel="noopener noreferrer">
+                  View Instagram &rarr;
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card" style="--order: 2">
+              <h3 class="exp-card__title">
+                <span class="exp-card__role">Marketing Coordinator</span><span class="exp-card__org">ACE Queen's</span>
+              </h3>
+              <ul class="exp-card__points">
+                <li>Create promotional content and support marketing initiatives for club events, opportunities, and activities.</li>
+                <li>Contribute to social media and event promotion to build awareness and engagement within the Queen's community.</li>
+              </ul>
+            </article>
+          </div>
+
+          <!-- RIGHT column (desktop) · Mobile order: 3 then 4 -->
+          <div class="experience__col">
+            <article class="exp-card exp-card--media" style="--order: 3">
+              <div class="exp-card__body">
+                <h3 class="exp-card__title">
+                  <span class="exp-card__role">Events Coordinator</span><span class="exp-card__org">Queen's Sisterhood</span>
+                </h3>
+                <ul class="exp-card__points">
+                  <li>Conduct outreach to brands and businesses to secure partnerships and sponsorships for club events.</li>
+                  <li>Develop creative event concepts and support promotion, planning, and execution from initial idea through launch.</li>
+                </ul>
+              </div>
+              <div class="exp-card__media">
+                <a
+                  class="phone"
+                  data-ig="queensSisterhood"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open the Queen's Sisterhood Instagram in a new tab"
+                >
+                  <span class="phone__notch" aria-hidden="true"></span>
+                  <img class="phone__shot" alt="Queen's Sisterhood Instagram profile" />
+                </a>
+                <a class="phone-link" data-ig="queensSisterhood" target="_blank" rel="noopener noreferrer">
+                  View Instagram &rarr;
+                </a>
+              </div>
+            </article>
+
+            <article class="exp-card" style="--order: 4">
+              <h3 class="exp-card__title">
+                <span class="exp-card__role">Intern</span><span class="exp-card__org">Women's Equity Lab</span>
+              </h3>
+              <ul class="exp-card__points">
+                <li>Developed and scheduled social media content to increase brand engagement and public awareness.</li>
+                <li>Conducted research and supported communication strategies promoting the organization's mission.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Selected Work ============ -->
+    <section id="selected-work" class="section selected-work">
+      <div class="selected-work__inner">
+        <h2 class="section-heading selected-work__heading">Selected Work</h2>
+
+        <!-- One carousel per group in the `selectedWork` array below;
+             each carousel (arrows + track + cards) is built by the script. -->
+        <div class="selected-work__carousels"></div>
+      </div>
+    </section>
+
+    <!-- ============ Skills & Tools ============ -->
+    <section id="skills" class="section skilltools">
+      <div class="skilltools__inner">
+        <h2 class="section-heading skilltools__heading">Skills &amp; Tools</h2>
+
+        <div class="skilltools__grid">
+          <!-- LEFT: Skills -->
+          <div class="skilltools__col">
+            <h3 class="skilltools__subhead">Skills</h3>
+            <ul class="skill-list">
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Social Media Marketing</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Content Strategy</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Content Creation</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Market Research</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Brand Partnerships</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Event Marketing</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Graphic Design</li>
+              <li class="skill-pill"><span class="skill-pill__dot" aria-hidden="true"></span>Audience Engagement</li>
+            </ul>
+          </div>
+
+          <!-- RIGHT: Tools -->
+          <div class="skilltools__col">
+            <h3 class="skilltools__subhead">Tools</h3>
+            <ul class="tool-grid">
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="ic-canva" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0" stop-color="#00c4cc"/><stop offset="1" stop-color="#6420ff"/>
+                    </linearGradient></defs>
+                    <circle cx="24" cy="24" r="20" fill="url(#ic-canva)"/>
+                    <path d="M31 29.5c-2 2.4-4.6 3.8-7.4 3.8-4.9 0-8.6-4-8.6-9.6 0-6 4-10 9.1-10 3.3 0 5.6 1.8 5.6 4.2 0 1.6-1 2.7-2.4 2.7-1.2 0-2-.8-2-1.9 0-.5.2-1 .5-1.6-1-.6-2.4-.3-3.4.7-1.4 1.4-2 3.7-2 6 0 3.6 1.9 6 4.7 6 1.9 0 3.5-1 4.9-2.9z" fill="#fff"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Canva</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <defs><radialGradient id="ic-ig" cx="0.3" cy="1" r="1.2">
+                      <stop offset="0" stop-color="#ffd776"/><stop offset="0.35" stop-color="#f3736b"/>
+                      <stop offset="0.7" stop-color="#e0369d"/><stop offset="1" stop-color="#6f34c9"/>
+                    </radialGradient></defs>
+                    <rect x="4" y="4" width="40" height="40" rx="12" fill="url(#ic-ig)"/>
+                    <rect x="13" y="13" width="22" height="22" rx="7" fill="none" stroke="#fff" stroke-width="3"/>
+                    <circle cx="24" cy="24" r="6" fill="none" stroke="#fff" stroke-width="3"/>
+                    <circle cx="32.2" cy="15.8" r="2.3" fill="#fff"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Instagram</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path d="M30 7h5.3c.6 4.4 3.1 7.9 7.4 8.7v5.5c-2.9.3-5.6-.6-8-2.2v12.4c0 6.6-4.8 11.6-11.2 11.6C17.3 51 12.5 46 12.5 39.4c0-6.4 5.1-11.5 11.6-11.2v5.6c-.7-.2-1.4-.3-2.1-.3-3.1 0-5.6 2.6-5.6 5.9s2.5 5.9 5.6 5.9c3.1 0 5.6-2.6 5.6-5.9V7z" transform="translate(-1.6 -1)" fill="#25f4ee"/>
+                      <path d="M30 7h5.3c.6 4.4 3.1 7.9 7.4 8.7v5.5c-2.9.3-5.6-.6-8-2.2v12.4c0 6.6-4.8 11.6-11.2 11.6C17.3 51 12.5 46 12.5 39.4c0-6.4 5.1-11.5 11.6-11.2v5.6c-.7-.2-1.4-.3-2.1-.3-3.1 0-5.6 2.6-5.6 5.9s2.5 5.9 5.6 5.9c3.1 0 5.6-2.6 5.6-5.9V7z" transform="translate(1.6 1)" fill="#fe2c55"/>
+                      <path d="M30 7h5.3c.6 4.4 3.1 7.9 7.4 8.7v5.5c-2.9.3-5.6-.6-8-2.2v12.4c0 6.6-4.8 11.6-11.2 11.6C17.3 51 12.5 46 12.5 39.4c0-6.4 5.1-11.5 11.6-11.2v5.6c-.7-.2-1.4-.3-2.1-.3-3.1 0-5.6 2.6-5.6 5.9s2.5 5.9 5.6 5.9c3.1 0 5.6-2.6 5.6-5.9V7z" fill="#0b0b0b"/>
+                    </g>
+                  </svg>
+                </span>
+                <span class="tool__name">TikTok</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <defs><linearGradient id="ic-meta" x1="0" y1="0" x2="1" y2="0.4">
+                      <stop offset="0" stop-color="#0064e0"/><stop offset="1" stop-color="#0090ff"/>
+                    </linearGradient></defs>
+                    <path d="M9 31c0-8.5 4-15 9.7-15 3.6 0 6.4 2.6 9.2 7 1.8-2.8 3.9-7 8.1-7C41 9 44 15.6 44 23.7c0 4.9-1.7 8.3-5.2 8.3-3.3 0-5-2.8-7.9-7.7-.9-1.5-1.8-3.2-2.9-5.1-1.1 1.9-2 3.6-2.9 5.1C20 32 17.8 36 13.6 36 10 36 9 33 9 31z" fill="none" stroke="url(#ic-meta)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Meta Business Suite</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M29 12a6 6 0 0 1 12 0v20a6 6 0 0 1-12 0z" fill="#f9ab00"/>
+                    <path d="M17 22a5.5 5.5 0 0 1 11 0v10a5.5 5.5 0 0 1-11 0z" fill="#f9ab00" opacity="0.6"/>
+                    <circle cx="12.5" cy="33.5" r="5.5" fill="#e37400"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Google Analytics</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="8" width="36" height="32" rx="5" fill="#1a7245"/>
+                    <path d="M17 17l6 7-6 7h4l4-4.6L33 31h4l-6-7 6-7h-4l-4 4.6L21 17z" fill="#fff"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Microsoft Excel</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="8" width="36" height="32" rx="5" fill="#c8431f"/>
+                    <path d="M16 15h9c4.4 0 7.5 2.9 7.5 7.2S29.4 29.5 25 29.5h-3.5V33H16zm5.5 4.6v5.3H24c1.9 0 3.1-1.1 3.1-2.7s-1.2-2.6-3.1-2.6z" fill="#fff"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Microsoft PowerPoint</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="6" y="8" width="36" height="32" rx="5" fill="#1c5cbe"/>
+                    <path d="M13 16h4.6l2.8 12 3-12h3.6l3 12 2.8-12H39l-4.6 17h-4.4l-2.8-11-2.8 11h-4.4z" fill="#fff"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Microsoft Word</span>
+              </li>
+
+              <li class="tool">
+                <span class="tool__icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="7" y="7" width="15" height="15" rx="3.5" fill="#4285f4"/>
+                    <rect x="26" y="7" width="15" height="15" rx="3.5" fill="#ea4335"/>
+                    <rect x="7" y="26" width="15" height="15" rx="3.5" fill="#fbbc04"/>
+                    <rect x="26" y="26" width="15" height="15" rx="3.5" fill="#34a853"/>
+                  </svg>
+                </span>
+                <span class="tool__name">Google Workspace</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ================================================================
+       EXPERIENCE — Instagram phone previews
+
+       To swap in the real screenshots and links later, edit ONLY the
+       two entries below. Nothing else needs to change.
+         - instagramImage : ONE screenshot image of the Instagram page.
+                            Drop the file in the assets/ folder (.png /
+                            .jpg / .svg all work) and point to it here.
+                            The phone just frames it — it's shown with
+                            object-fit: cover, so it's only cropped as
+                            needed to fill the screen, never edited.
+         - instagramUrl   : the public Instagram page the phone links to
+       ================================================================ */
+    var INSTAGRAM_PREVIEWS = {
+      mycoursecompass: {
+        instagramImage: "assets/mycoursecompass-instagram.jpg",
+        instagramUrl: "https://www.instagram.com/mycoursecompass/"
+      },
+      queensSisterhood: {
+        instagramImage: "assets/queens-sisterhood-instagram.jpg",
+        instagramUrl: "https://www.instagram.com/queens_sisterhood/"
+      }
+    };
+
+    // Wire the config above into the phone previews in the DOM.
+    (function () {
+      Object.keys(INSTAGRAM_PREVIEWS).forEach(function (key) {
+        var data = INSTAGRAM_PREVIEWS[key];
+        document.querySelectorAll('[data-ig="' + key + '"]').forEach(function (el) {
+          el.setAttribute("href", data.instagramUrl);
+          var shot = el.querySelector(".phone__shot");
+          if (shot) shot.setAttribute("src", data.instagramImage);
+        });
+      });
+    })();
+
+    /* ================================================================
+       SELECTED WORK — carousels
+
+       Each object in the array below is ONE carousel (they stack
+       vertically). Its `images` array is the slides, shown in order.
+
+       To add an image to a carousel:
+         1. Drop the file into the  assets/work/  folder.
+         2. Add one entry to that carousel's `images` array:
+              { image: "assets/work/my-file.jpg", project: "", type: "" }
+
+       To add a whole new carousel underneath:
+         add another  { images: [ ... ] }  object to the array.
+
+         image   : path to the image  (leave "" for an "Add Work Image" box)
+         project : optional small label, e.g. "Mycoursecompass"
+         type    : optional second line,  e.g. "Social Media Content"
+       ================================================================ */
+    var selectedWork = [
+      // --- Carousel 1: MyCourseCompass "study drink" post (in order) ---
+      {
+        images: [
+          { image: "assets/work/mcc-drink-quiz-1.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-drink-quiz-2.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-drink-quiz-3.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-drink-quiz-4.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-drink-quiz-5.jpg", project: "", type: "" }
+        ]
+      },
+
+      // --- Carousel 2: MyCourseCompass "AVOID these 5 things" post (in order) ---
+      {
+        images: [
+          { image: "assets/work/mcc-avoid-1.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-avoid-2.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-avoid-3.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-avoid-4.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-avoid-5.jpg", project: "", type: "" },
+          { image: "assets/work/mcc-avoid-6.jpg", project: "", type: "" }
+        ]
+      }
+
+      // --- Add another carousel here: { images: [ ... ] } ---
+    ];
+
+    // Build every carousel from the array above and wire up its arrows.
+    (function () {
+      var host = document.querySelector(".selected-work__carousels");
+      if (!host) return;
+
+      (selectedWork || []).forEach(function (group) {
+        var items = Array.isArray(group) ? group : (group && group.images) || [];
+        host.appendChild(buildCarousel(items));
+      });
+
+      function buildCarousel(items) {
+        var wrap = document.createElement("div");
+        wrap.className = "work-carousel";
+
+        var prev = makeArrow("prev", "Previous work");
+        var next = makeArrow("next", "Next work");
+
+        var track = document.createElement("div");
+        track.className = "work-carousel__track";
+        track.setAttribute("role", "region");
+        track.setAttribute("aria-label", "Selected work");
+        track.setAttribute("tabindex", "0");
+
+        items.forEach(function (item, i) {
+          track.appendChild(makeCard(item, i));
+        });
+
+        wrap.appendChild(prev);
+        wrap.appendChild(track);
+        wrap.appendChild(next);
+
+        wireArrows(track, prev, next);
+        return wrap;
+      }
+
+      function makeArrow(dir, label) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.className = "work-arrow work-arrow--" + dir;
+        b.setAttribute("aria-label", label);
+        b.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' +
+          (dir === "prev" ? "M15 4l-8 8 8 8" : "M9 4l8 8-8 8") +
+          '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        return b;
+      }
+
+      function makeCard(item, i) {
+        var card = document.createElement("figure");
+        card.className = "work-card";
+
+        var media = document.createElement("div");
+        media.className = "work-card__media";
+
+        if (item.image) {
+          var img = document.createElement("img");
+          img.className = "work-card__img";
+          img.src = item.image;
+          img.loading = "lazy";
+          img.alt = item.project
+            ? item.project + (item.type ? " — " + item.type : "")
+            : "Selected work " + (i + 1);
+          media.appendChild(img);
+        } else {
+          var ph = document.createElement("span");
+          ph.className = "work-card__placeholder";
+          ph.textContent = "Add Work Image";
+          media.appendChild(ph);
+        }
+        card.appendChild(media);
+
+        if (item.project || item.type) {
+          var cap = document.createElement("figcaption");
+          cap.className = "work-card__label";
+          if (item.project) {
+            var pr = document.createElement("span");
+            pr.className = "work-card__project";
+            pr.textContent = item.project;
+            cap.appendChild(pr);
+          }
+          if (item.type) {
+            var ty = document.createElement("span");
+            ty.className = "work-card__type";
+            ty.textContent = item.type;
+            cap.appendChild(ty);
+          }
+          card.appendChild(cap);
+        }
+        return card;
+      }
+
+      function wireArrows(track, prev, next) {
+        function pageAmount() {
+          var card = track.querySelector(".work-card");
+          var gap = parseFloat(getComputedStyle(track).columnGap) || 16;
+          var cardW = card ? card.getBoundingClientRect().width : track.clientWidth / 3;
+          return (cardW + gap) * 2; // move about two images per click
+        }
+        prev.addEventListener("click", function () {
+          track.scrollBy({ left: -pageAmount(), behavior: "smooth" });
+        });
+        next.addEventListener("click", function () {
+          track.scrollBy({ left: pageAmount(), behavior: "smooth" });
+        });
+        function update() {
+          var max = track.scrollWidth - track.clientWidth;
+          prev.disabled = track.scrollLeft <= 2;
+          next.disabled = track.scrollLeft >= max - 2;
+        }
+        track.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
+      }
+    })();
+
+    (function () {
+      var toggle = document.querySelector(".nav__toggle");
+      var menu = document.getElementById("nav-menu");
+      var nav = document.querySelector(".nav");
+
+      toggle.addEventListener("click", function () {
+        var open = nav.classList.toggle("nav--open");
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      });
+
+      // Close the menu after tapping a link (mobile)
+      menu.addEventListener("click", function (e) {
+        if (e.target.tagName === "A") {
+          nav.classList.remove("nav--open");
+          toggle.setAttribute("aria-expanded", "false");
+          toggle.setAttribute("aria-label", "Open menu");
+        }
+      });
+    })();
+
+    // Nudge the hero video to play. `autoplay muted playsinline` handles
+    // most cases; this covers the stragglers. Reduced-motion viewers get
+    // the still poster (the video is display:none for them via CSS).
+    (function () {
+      var video = document.querySelector(".hero__video");
+      if (!video) return;
+
+      var prefersReduced = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
+
+      if (prefersReduced) {
+        video.removeAttribute("autoplay");
+        video.pause();
+        return;
+      }
+
+      var tryPlay = function () {
+        var p = video.play();
+        if (p && typeof p.catch === "function") p.catch(function () {});
+      };
+      tryPlay();
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) tryPlay();
+      });
+    })();
+  </script>
+</body>
+</html>
